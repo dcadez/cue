@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.firebase.client.Firebase;
+import com.facebook.FacebookSdk;
 
 public class MainActivity extends AppCompatActivity {
 
