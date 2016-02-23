@@ -1,4 +1,4 @@
-package com.example.dominic.cue;
+package com.cueapp.cue.cue;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

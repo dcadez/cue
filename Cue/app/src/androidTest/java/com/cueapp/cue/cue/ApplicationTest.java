@@ -1,4 +1,4 @@
-package com.example.dominic.cue;
+package com.cueapp.cue.cue;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
