@@ -1,4 +1,4 @@
-package com.example.dominic.cue;
+package com.cueapp.cue.cue;
 
 import org.junit.Test;
 

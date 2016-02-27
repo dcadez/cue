@@ -1,4 +1,4 @@
-package com.example.dominic.cue;
+package com.cueapp.cue.cue;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -13,11 +13,15 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.firebase.client.Firebase;
+import com.facebook.FacebookSdk;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Cue");
