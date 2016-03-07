@@ -62,5 +62,5 @@
         android:layout_centerHorizontal="true"
         android:width="400dp"
         android:switchMinWidth="60dp"
-        android:textSize="50px" />
+        android:textSize="51px" />
 </RelativeLayout>
