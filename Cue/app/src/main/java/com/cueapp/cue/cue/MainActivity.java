@@ -29,6 +29,13 @@ import java.security.NoSuchAlgorithmException;
 public class MainActivity extends AppCompatActivity {
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        Intent intent = new Intent(this, FacebookLoginActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Firebase.setAndroidContext(this);
