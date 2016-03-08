@@ -18,7 +18,20 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorToolbar"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Reminders"
+            android:textStyle="bold"
+            android:id="@+id/remindTitleText"
+            android:textSize="60px"
+            android:textColor="#ffffff"
+            android:singleLine="true" />
+
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -31,6 +44,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_input_add"
-        android:tint="@color/colorPrimaryDark"/>
+        app:backgroundTint="@color/colorPrimary"
+        android:tint="@color/colorAccent"/>
 
 </android.support.design.widget.CoordinatorLayout>
