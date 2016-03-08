@@ -69,10 +69,11 @@
         android:text="Remind Self"
         android:id="@+id/selfSwitch"
         android:layout_below="@+id/editDate"
-        android:layout_centerHorizontal="true"
-        android:width="347dp"
+        android:layout_centerHorizontal="false"
+        android:width="200dp"
         android:switchMinWidth="60dp"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="7dp"
         android:textSize="45px" />
 
     <EditText
