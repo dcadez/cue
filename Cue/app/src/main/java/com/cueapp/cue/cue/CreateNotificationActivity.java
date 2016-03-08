@@ -16,6 +16,13 @@ public class CreateNotificationActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        if(toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setTitle("");
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -24,6 +31,7 @@ public class CreateNotificationActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+        
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
