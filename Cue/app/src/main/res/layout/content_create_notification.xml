@@ -42,7 +42,7 @@
         android:ems="10"
         android:id="@+id/editDate"
         android:hint="1/11/2016"
-        android:width="180dp"
+        android:width="165dp"
         android:textSize="40px"
         android:textColorHint="#475c79"
         android:layout_alignTop="@+id/editTime"
