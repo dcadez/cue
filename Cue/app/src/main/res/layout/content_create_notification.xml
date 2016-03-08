@@ -19,6 +19,8 @@
         android:hint="Title"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:textSize="45px"
+        android:textColorHint="#475c79"
         android:width="385dp" />
 
     <EditText
@@ -29,6 +31,8 @@
         android:hint="Description"
         android:layout_below="@+id/editTitle"
         android:layout_centerHorizontal="true"
+        android:textColorHint="#475c79"
+        android:textSize="45px"
         android:height="100dp" />
 
     <EditText
@@ -37,17 +41,23 @@
         android:inputType="date"
         android:ems="10"
         android:id="@+id/editDate"
-        android:layout_below="@+id/editDescription"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:width="200dp" />
+        android:hint="1/11/2016"
+        android:width="200dp"
+        android:textSize="40px"
+        android:textColorHint="#475c79"
+        android:layout_alignTop="@+id/editTime"
+        android:layout_toRightOf="@+id/timeImage"
+        android:layout_toEndOf="@+id/timeImage" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="time"
+        android:hint="10:00 AM"
         android:ems="10"
+        android:textSize="40px"
         android:id="@+id/editTime"
+        android:textColorHint="#475c79"
         android:layout_below="@+id/editDescription"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -60,7 +70,43 @@
         android:id="@+id/selfSwitch"
         android:layout_below="@+id/editDate"
         android:layout_centerHorizontal="true"
-        android:width="400dp"
+        android:width="347dp"
         android:switchMinWidth="60dp"
-        android:textSize="51px" />
+        android:layout_marginTop="10dp"
+        android:textSize="45px" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Invite contact"
+        android:ems="10"
+        android:id="@+id/inviteEdit"
+        android:width="320dp"
+        android:textSize="45px"
+        android:textColorHint="#475c79"
+        android:textColor="#475c79"
+        android:layout_below="@+id/selfSwitch"
+        android:layout_alignRight="@+id/editTime"
+        android:layout_alignEnd="@+id/editTime" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/time_image"
+        android:layout_marginTop="7dp"
+        android:id="@+id/timeImage"
+        android:layout_alignTop="@+id/editDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/invite_friends"
+        android:id="@+id/friendsImage"
+        android:layout_alignBottom="@+id/inviteEdit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/inviteEdit" />
 </RelativeLayout>
