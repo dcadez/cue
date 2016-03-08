@@ -125,5 +125,7 @@
         android:textStyle="bold"
         android:textSize="46px"
         android:width="50dp"
-        android:height="20dp" />
+        android:height="20dp"
+        android:onClick="submitReminder"/>
+
 </RelativeLayout>
