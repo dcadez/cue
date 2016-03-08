@@ -15,6 +15,7 @@ import android.widget.ListView;
 
 import com.firebase.client.Firebase;
 import com.facebook.FacebookSdk;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,25 +29,13 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
 
-//        Activity activity = MainActivity.this;
-//        Toolbar tb = (Toolbar) activity.findViewById(R.id.toolbar);
-//        if (tb != null) {
-//            activity.setTitle("Title");
-//        }
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+    }
 
-//        ListView lst = new ListView();
-//        String[] arr = {"Item 1","Item 2"};
-//        ArrayAdapter<String> ad = new ArrayAdapter<String>(R.layout.mytextview,arr);
-//        lst.setAdapter(ad);
+    /**Called when the user clicks the Plus button */
+    public void createReminder(View view) {
+        Intent intent = new Intent(this, CreateNotificationActivity.class);
+        startActivity(intent);
     }
 
     @Override
