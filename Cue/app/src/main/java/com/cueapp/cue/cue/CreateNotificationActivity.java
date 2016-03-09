@@ -1,5 +1,7 @@
 package com.cueapp.cue.cue;
 
+import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -25,6 +27,7 @@ public class CreateNotificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_create_notification);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -46,11 +49,19 @@ public class CreateNotificationActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        if(toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setTitle("");
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        e68fb6f6166126adda6c588f57353dcf64cb7e39
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void submitReminder(View view) {
-
+        
        /* Firebase reminderRef = new Firebase("https://cue-app.firebaseio.com/");
 
         EditText edit_title = (EditText) findViewById(R.id.editTitle);
@@ -74,6 +85,8 @@ public class CreateNotificationActivity extends AppCompatActivity {
         users.put(invite_edit_value, newReminder);
 
         reminderRef.setValue(users); */
+
+        Firebase ref = new Firebase("https://cue-app.firebaseio.com/");
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
