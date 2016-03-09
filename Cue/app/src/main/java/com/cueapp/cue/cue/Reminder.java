@@ -25,15 +25,15 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class Reminder {
-    private String reminderTitle;
-    private String reminderDescription;
-    private Date reminderDate;
-    private String reminderTime;
+    private CharSequence reminderTitle;
+    private CharSequence reminderDescription;
+    private CharSequence reminderDate;
+    private CharSequence reminderTime;
     private String reminderContact;
 
     public Reminder() {}
 
-    public Reminder(String reminderTitle, String reminderDescription, Date reminderDate, String reminderTime, String reminderContact) {
+    public Reminder(CharSequence reminderTitle, CharSequence reminderDescription, CharSequence reminderDate, CharSequence reminderTime, String reminderContact) {
         this.reminderTitle = reminderTitle;
         this.reminderDescription = reminderDescription;
         this.reminderDate = reminderDate;
@@ -41,23 +41,23 @@ public class Reminder {
         this.reminderContact = reminderContact;
     }
 
-    public String getTitle() {
+    public CharSequence getTitle() {
         return reminderTitle;
     }
 
-    public String getDescription() {
+    public CharSequence getDescription() {
         return reminderDescription;
     }
 
-    public Date getDate() {
+    public CharSequence getDate() {
         return reminderDate;
     }
 
-    public String reminderTime() {
+    public CharSequence reminderTime() {
         return reminderTime;
     }
 
-    public String getContact() {
+    public CharSequence getContact() {
         return reminderContact;
     }
 }

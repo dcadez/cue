@@ -19,6 +19,7 @@
         android:hint="Title"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:inputType="textCapWords"
         android:textSize="45px"
         android:textColorHint="#475c79"
         android:width="385dp" />
@@ -66,6 +67,19 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/editInvite"
+        android:hint="Invite Friends"
+        android:inputType="textCapWords"
+        android:textSize="45px"
+        android:textColorHint="#475c79"
+        android:width="260dp"
+        android:layout_below="@+id/editDate"
+        android:layout_toRightOf="@+id/friendsImage"
+        android:layout_toEndOf="@+id/friendsImage" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="Invite contact"
         android:ems="10"
@@ -74,9 +88,9 @@
         android:textSize="45px"
         android:textColorHint="#475c79"
         android:textColor="#475c79"
-        android:layout_below="@+id/editDate"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -93,10 +107,9 @@
         android:layout_height="wrap_content"
         android:src="@drawable/invite_friends"
         android:id="@+id/friendsImage"
-        android:layout_alignBottom="@+id/inviteEdit"
+        android:layout_alignBottom="@+id/editInvite"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/inviteEdit" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -110,7 +123,8 @@
         android:width="50dp"
         android:height="20dp"
         android:onClick="submitReminder"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/inviteEdit"
+        android:layout_alignRight="@+id/editDate"
+        android:layout_alignEnd="@+id/editDate" />
 
 </RelativeLayout>

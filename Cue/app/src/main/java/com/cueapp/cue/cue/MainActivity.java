@@ -46,51 +46,27 @@ public class MainActivity extends AppCompatActivity {
         public String title;
 
         public String toString(){
-            return title + "\n\t" + message + "\n\t" + from + "\n\t" + time + "\n";
+            return "Title: " +title + "\n\t" +
+                    "Message: " + message + "\n\t" +
+                    "From: " + from + "\n\t" +
+                    "Time: " + time + "\n";
         }
     }
 
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//        if (!logged_in) {
-//            logged_in = true;
-//            Intent intent = new Intent(this, FacebookLoginActivity.class);
-//            startActivity(intent);
-//        }
-//    }
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Firebase.setAndroidContext(this);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        callbackManager = CallbackManager.Factory.create();
+    protected void onStart() {
+        super.onStart();
 
-        toolbar.setTitle("Cue");
-        toolbar.setTitleTextColor(Color.WHITE);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        if (!logged_in) {
+            logged_in = true;
+            Intent intent = new Intent(this, FacebookLoginActivity.class);
+            startActivity(intent);
+        }
 
         // Populate listView
         lv = (ListView) findViewById(R.id.listView);
 
-//        List<String> your_array_list = new ArrayList<String>();
-//        your_array_list.add("Take out trash    Ryan Carrell  5:40 PM");
-//        your_array_list.add("Get Eggs from Kroger    Me      Feb 22");
-//
-//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-//                this,
-//                android.R.layout.simple_list_item_1,
-//                your_array_list );
-
-        // Instanciating an array list (you don't need to do this,
-        // you already have yours).
         List<Notification> your_array_list = new ArrayList<Notification>();
 
         Notification notification1 = new Notification();
@@ -109,6 +85,35 @@ public class MainActivity extends AppCompatActivity {
                 your_array_list );
 
         lv.setAdapter(arrayAdapter);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Firebase.setAndroidContext(this);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+
+        toolbar.setTitle("Cue");
+        toolbar.setTitleTextColor(Color.WHITE);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+//        List<String> your_array_list = new ArrayList<String>();
+//        your_array_list.add("Take out trash    Ryan Carrell  5:40 PM");
+//        your_array_list.add("Get Eggs from Kroger    Me      Feb 22");
+//
+//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+//                this,
+//                android.R.layout.simple_list_item_1,
+//                your_array_list );
+
+        // Instanciating an array list (you don't need to do this,
+        // you already have yours).
+
     }
 
 //    public void onListItemClick(ListView parent, View v, int position, long id){
