@@ -16,18 +16,17 @@ public class FacebookLoginActivity extends AppCompatActivity {
     private TextView info;
     private LoginButton loginButton;
 
-    private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        callbackManager = CallbackManager.Factory.create();
+
         setContentView(R.layout.activity_facebook_login);
 
         info = (TextView)findViewById(R.id.info);
         loginButton = (LoginButton)findViewById(R.id.login_button);
 
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        loginButton.registerCallback(MainActivity.callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 info.setText(
@@ -35,8 +34,9 @@ public class FacebookLoginActivity extends AppCompatActivity {
                                 + loginResult.getAccessToken().getUserId()
                                 + "\n" +
                                 "Auth Token: "
-                                + loginResult.getAccessToken().getToken()
-                );
+                                + loginResult.getAccessToken().getToken());
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
 
             @Override
@@ -54,6 +54,6 @@ public class FacebookLoginActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+        MainActivity.callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }

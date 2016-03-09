@@ -19,8 +19,13 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.facebook.FacebookSdk;
+import com.firebase.client.FirebaseError;
+
 import android.content.Intent;
 
 import java.security.MessageDigest;
@@ -28,11 +33,19 @@ import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static CallbackManager callbackManager;
+    private static boolean logged_in = false;
+
+
     @Override
     protected void onStart() {
         super.onStart();
-        Intent intent = new Intent(this, FacebookLoginActivity.class);
-        startActivity(intent);
+
+        if (!logged_in) {
+            logged_in = true;
+            Intent intent = new Intent(this, FacebookLoginActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -42,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
 
         toolbar.setTitle("Cue");
         toolbar.setTitleTextColor(Color.WHITE);
