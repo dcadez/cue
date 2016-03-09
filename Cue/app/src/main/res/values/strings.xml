@@ -6,7 +6,7 @@
     <string name="title_activity_facebook_login">FacebookLoginActivity</string>
     <string-array name="friends_array">
         <item>Me</item>
-        <item>Dominic Cadez</item>
+        <item>Sevag Nadjarian</item>
         <item>Ryan Carrell</item>
     </string-array>
 </resources>
