@@ -46,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
         public String title;
 
         public String toString(){
-            return title + "\n\t" + message + "\n\t" + from + "\n\t" + time + "\n";
+            return "Title: " +title + "\n\t" +
+                    "Message: " + message + "\n\t" +
+                    "From: " + from + "\n\t" +
+                    "Time: " + time + "\n";
         }
     }
 
@@ -66,17 +69,17 @@ public class MainActivity extends AppCompatActivity {
 
         List<Notification> your_array_list = new ArrayList<Notification>();
         Notification notification = new Notification();
-        notification.message = "Description: Take out trash";
-        notification.from = "From: Ryan Carrell";
-        notification.time = "Time: Mar 9 6:40 PM";
-        notification.title = "Title: Apartment";
+        notification.message = "Take out trash";
+        notification.from = "Ryan Carrell";
+        notification.time = "Mar 9 6:40 PM";
+        notification.title = "Apartment";
         your_array_list.add(notification);
 
         Notification notification1 = new Notification();
-        notification1.message = "Description: Get Eggs from Kroger";
-        notification1.from = "From: Me";
-        notification1.time = "Time: Feb 22 4:00 PM";
-        notification1.title = "Title: Grocery";
+        notification1.message = "Get Eggs from Kroger";
+        notification1.from = "Me";
+        notification1.time = "Feb 22 4:00 PM";
+        notification1.title = "Grocery";
         your_array_list.add(notification1);
 
         // This is the array adapter, it takes the context of the activity as a
