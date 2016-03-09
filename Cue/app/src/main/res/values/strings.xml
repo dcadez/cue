@@ -5,7 +5,7 @@
     <string name="title_activity_create_notification">CreateNotificationActivity</string>
     <string name="title_activity_facebook_login">FacebookLoginActivity</string>
     <string-array name="friends_array">
-        <item>Dominic Cadez</item>
+        <item>Ryan Carrell</item>
         <item>Sevag Nadjarian</item>
     </string-array>
 </resources>
