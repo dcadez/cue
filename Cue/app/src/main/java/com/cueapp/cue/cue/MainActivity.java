@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         Notification notification1 = new Notification();
         notification1.message = "Buy Milk";
-        notification1.from = "Sevag";
+        notification1.from = "Dominic Cadez";
         notification1.time = "Mar 10 4:00 PM";
         notification1.title = "Food";
         your_array_list.add(notification1);
