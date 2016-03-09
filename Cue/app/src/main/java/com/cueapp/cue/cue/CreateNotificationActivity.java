@@ -49,14 +49,6 @@ public class CreateNotificationActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        if(toolbar != null) {
-            setSupportActionBar(toolbar);
-            getSupportActionBar().setTitle("");
-            getSupportActionBar().setHomeButtonEnabled(true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-
-        e68fb6f6166126adda6c588f57353dcf64cb7e39
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
