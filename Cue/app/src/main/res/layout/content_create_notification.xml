@@ -64,6 +64,7 @@
         android:layout_alignParentEnd="true"
         android:width="130dp" />
 
+<<<<<<< HEAD
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,9 +89,9 @@
         android:textSize="45px"
         android:textColorHint="#475c79"
         android:textColor="#475c79"
-        android:layout_below="@+id/selfSwitch"
-        android:layout_alignRight="@+id/editTime"
-        android:layout_alignEnd="@+id/editTime" />
+        android:layout_below="@+id/editDate"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -117,16 +118,14 @@
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/saveButton"
-        android:layout_below="@+id/inviteEdit"
-        android:layout_toLeftOf="@+id/editTime"
-        android:layout_toStartOf="@+id/editTime"
-        android:layout_marginTop="20dp"
         android:background="#0e05c9"
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:textSize="46px"
         android:width="50dp"
         android:height="20dp"
-        android:onClick="submitReminder"/>
+        android:onClick="submitReminder"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

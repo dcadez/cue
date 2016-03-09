@@ -61,7 +61,7 @@ public class CreateNotificationActivity extends AppCompatActivity {
     }
 
     public void submitReminder(View view) {
-        
+
        /* Firebase reminderRef = new Firebase("https://cue-app.firebaseio.com/");
 
         EditText edit_title = (EditText) findViewById(R.id.editTitle);

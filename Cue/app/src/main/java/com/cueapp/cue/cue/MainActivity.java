@@ -30,23 +30,37 @@ import android.content.Intent;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static CallbackManager callbackManager;
     private static boolean logged_in = false;
+    private ListView lv;
 
+    public class Notification{
+        public String message;
+        public String from;
+        public String time;
+        public String title;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if (!logged_in) {
-            logged_in = true;
-            Intent intent = new Intent(this, FacebookLoginActivity.class);
-            startActivity(intent);
+        public String toString(){
+            return title + "\n\t" + message + "\n\t" + from + "\n\t" + time + "\n";
         }
     }
+
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//        if (!logged_in) {
+//            logged_in = true;
+//            Intent intent = new Intent(this, FacebookLoginActivity.class);
+//            startActivity(intent);
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +76,56 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        // Populate listView
+        lv = (ListView) findViewById(R.id.listView);
+
+//        List<String> your_array_list = new ArrayList<String>();
+//        your_array_list.add("Take out trash    Ryan Carrell  5:40 PM");
+//        your_array_list.add("Get Eggs from Kroger    Me      Feb 22");
+//
+//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+//                this,
+//                android.R.layout.simple_list_item_1,
+//                your_array_list );
+
+        // Instanciating an array list (you don't need to do this,
+        // you already have yours).
+        List<Notification> your_array_list = new ArrayList<Notification>();
+        Notification notification = new Notification();
+        notification.message = "Take out trash";
+        notification.from = "Ryan Carrell";
+        notification.time = "Mar 9 6:40 PM";
+        notification.title = "Apartment";
+        your_array_list.add(notification);
+
+        Notification notification1 = new Notification();
+        notification1.message = "Get Eggs from Kroger";
+        notification1.from = "Me";
+        notification1.time = "Feb 22 4:00 PM";
+        notification1.title = "Grocery";
+        your_array_list.add(notification1);
+
+        // This is the array adapter, it takes the context of the activity as a
+        // first parameter, the type of list view as a second parameter and your
+        // array as a third parameter.
+        ArrayAdapter<Notification> arrayAdapter = new ArrayAdapter<Notification>(
+                this,
+                android.R.layout.simple_list_item_1,
+                your_array_list );
+
+        lv.setAdapter(arrayAdapter);
     }
+
+//    public void onListItemClick(ListView parent, View v, int position, long id){
+//
+//        //Set background of all items to white
+//        for (int i=0;i<parent.getChildCount();i++){
+//            parent.getChildAt(i).setBackgroundColor(Color.WHITE);
+//        }
+//
+//        v.setBackgroundColor(Color.CYAN);
+//    }
 
     /**Called when the user clicks the Plus button */
     public void createReminder(View view) {
