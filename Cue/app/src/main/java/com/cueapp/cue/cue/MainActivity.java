@@ -92,18 +92,12 @@ public class MainActivity extends AppCompatActivity {
         // Instanciating an array list (you don't need to do this,
         // you already have yours).
         List<Notification> your_array_list = new ArrayList<Notification>();
-        Notification notification = new Notification();
-        notification.message = "Take out trash";
-        notification.from = "Ryan Carrell";
-        notification.time = "Mar 9 6:40 PM";
-        notification.title = "Apartment";
-        your_array_list.add(notification);
 
         Notification notification1 = new Notification();
-        notification1.message = "Get Eggs from Kroger";
-        notification1.from = "Me";
-        notification1.time = "Feb 22 4:00 PM";
-        notification1.title = "Grocery";
+        notification1.message = "Buy Milk";
+        notification1.from = "Sevag";
+        notification1.time = "Mar 10 4:00 PM";
+        notification1.title = "Food";
         your_array_list.add(notification1);
 
         // This is the array adapter, it takes the context of the activity as a
