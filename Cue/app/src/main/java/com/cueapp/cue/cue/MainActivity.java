@@ -51,16 +51,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//        if (!logged_in) {
-//            logged_in = true;
-//            Intent intent = new Intent(this, FacebookLoginActivity.class);
-//            startActivity(intent);
-//        }
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (!logged_in) {
+            logged_in = true;
+            Intent intent = new Intent(this, FacebookLoginActivity.class);
+            startActivity(intent);
+        }
+
+        // Populate listView
+        lv = (ListView) findViewById(R.id.listView);
+
+        List<Notification> your_array_list = new ArrayList<Notification>();
+        Notification notification = new Notification();
+        notification.message = "Description: Take out trash";
+        notification.from = "From: Ryan Carrell";
+        notification.time = "Time: Mar 9 6:40 PM";
+        notification.title = "Title: Apartment";
+        your_array_list.add(notification);
+
+        Notification notification1 = new Notification();
+        notification1.message = "Description: Get Eggs from Kroger";
+        notification1.from = "From: Me";
+        notification1.time = "Time: Feb 22 4:00 PM";
+        notification1.title = "Title: Grocery";
+        your_array_list.add(notification1);
+
+        // This is the array adapter, it takes the context of the activity as a
+        // first parameter, the type of list view as a second parameter and your
+        // array as a third parameter.
+        ArrayAdapter<Notification> arrayAdapter = new ArrayAdapter<Notification>(
+                this,
+                android.R.layout.simple_list_item_1,
+                your_array_list );
+
+        lv.setAdapter(arrayAdapter);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-        // Populate listView
-        lv = (ListView) findViewById(R.id.listView);
-
 //        List<String> your_array_list = new ArrayList<String>();
 //        your_array_list.add("Take out trash    Ryan Carrell  5:40 PM");
 //        your_array_list.add("Get Eggs from Kroger    Me      Feb 22");
@@ -91,30 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Instanciating an array list (you don't need to do this,
         // you already have yours).
-        List<Notification> your_array_list = new ArrayList<Notification>();
-        Notification notification = new Notification();
-        notification.message = "Take out trash";
-        notification.from = "Ryan Carrell";
-        notification.time = "Mar 9 6:40 PM";
-        notification.title = "Apartment";
-        your_array_list.add(notification);
 
-        Notification notification1 = new Notification();
-        notification1.message = "Get Eggs from Kroger";
-        notification1.from = "Me";
-        notification1.time = "Feb 22 4:00 PM";
-        notification1.title = "Grocery";
-        your_array_list.add(notification1);
-
-        // This is the array adapter, it takes the context of the activity as a
-        // first parameter, the type of list view as a second parameter and your
-        // array as a third parameter.
-        ArrayAdapter<Notification> arrayAdapter = new ArrayAdapter<Notification>(
-                this,
-                android.R.layout.simple_list_item_1,
-                your_array_list );
-
-        lv.setAdapter(arrayAdapter);
     }
 
 //    public void onListItemClick(ListView parent, View v, int position, long id){
