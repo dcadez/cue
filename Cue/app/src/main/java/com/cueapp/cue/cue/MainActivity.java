@@ -19,6 +19,9 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.facebook.AccessToken;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.firebase.client.Firebase;
 import com.facebook.FacebookSdk;
 import android.content.Intent;
@@ -28,11 +31,25 @@ import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static boolean logged_in = false;
+
+    public boolean isLoggedIn() {
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        return accessToken != null;
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
-        Intent intent = new Intent(this, FacebookLoginActivity.class);
-        startActivity(intent);
+
+        if(isLoggedIn()){
+            Log.e("LOGIN CHECK","THIS USER IS LOGGED IN CHECK");
+        }
+        else{
+            Log.e("LOGIN CHECK","NOT LOGGED IN BRO");
+            Intent intent = new Intent(this, FacebookLoginActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
