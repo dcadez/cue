@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.firebase.client.Firebase;
 import com.facebook.FacebookSdk;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Reminder {
     private String reminderTitle;
     private String reminderDescription;
