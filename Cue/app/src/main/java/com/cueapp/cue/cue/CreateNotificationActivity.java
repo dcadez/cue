@@ -17,10 +17,14 @@ import com.firebase.client.Firebase;
 import com.facebook.FacebookSdk;
 import android.content.Intent;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class CreateNotificationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_create_notification);
@@ -39,7 +43,10 @@ public class CreateNotificationActivity extends AppCompatActivity {
 
     public void submitReminder(View view) {
 
-        Firebase ref = new Firebase("https://cue-app.firebaseio.com/");
+//        Firebase ref = new Firebase("https://cue-app.firebaseio.com/");
+
+        //User below class to submit new reminder on Firebase
+//         FirebaseHelper.getInstance().AddNewReminder();
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
