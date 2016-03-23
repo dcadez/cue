@@ -46,7 +46,8 @@ public class CreateNotificationActivity extends AppCompatActivity {
 //        Firebase ref = new Firebase("https://cue-app.firebaseio.com/");
 
         //User below class to submit new reminder on Firebase
-//         FirebaseHelper.getInstance().AddNewReminder();
+        Reminder test = new Reminder("Title", "Description", Calendar.getInstance().getTime(), "Time", "Contact");
+        FirebaseHelper.getInstance().AddNewReminder(test);
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
