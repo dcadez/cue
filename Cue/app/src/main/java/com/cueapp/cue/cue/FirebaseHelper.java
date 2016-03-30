@@ -49,7 +49,7 @@ public class FirebaseHelper {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 com.cueapp.cue.cue.Reminder newReminder = dataSnapshot.getValue(
                         com.cueapp.cue.cue.Reminder.class);
-//                Log.v("New Value in Reminder",newReminder.getTitle());
+                Log.v("New Value in Reminder",newReminder.getTitle());
             }
 
             @Override
