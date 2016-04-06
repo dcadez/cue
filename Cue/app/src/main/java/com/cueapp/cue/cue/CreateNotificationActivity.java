@@ -11,12 +11,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.firebase.client.Firebase;
 import com.facebook.FacebookSdk;
 import android.content.Intent;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -41,12 +43,27 @@ public class CreateNotificationActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    EditText title;
+    EditText description;
+    EditText date;
+    EditText time;
+    EditText contact;
+
     public void submitReminder(View view) {
+
+        title = (EditText)findViewById(R.id.editTitle);
+        description = (EditText)findViewById(R.id.editDescription);
+        date = (EditText)findViewById(R.id.editDate);
+        time = (EditText)findViewById(R.id.editTime);
+
+        Reminder test = new Reminder(title.getText().toString(), description.getText().toString(),
+                Calendar.getInstance().getTime(), "Time", "Contact");
+
 
 //        Firebase ref = new Firebase("https://cue-app.firebaseio.com/");
 
         //User below class to submit new reminder on Firebase
-        Reminder test = new Reminder("Title", "Description", Calendar.getInstance().getTime(), "Time", "Contact");
+
         FirebaseHelper.getInstance().AddNewReminder(test);
 
         Intent intent = new Intent(this, MainActivity.class);

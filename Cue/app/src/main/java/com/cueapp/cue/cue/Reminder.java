@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Reminder {
+    private String Id;
     private String reminderTitle;
     private String reminderDescription;
     private Date reminderDate;
@@ -41,6 +42,15 @@ public class Reminder {
         this.reminderDate = reminderDate;
         this.reminderTime = reminderTime;
         this.reminderContact = reminderContact;
+    }
+
+    public void SetId(String id)
+    {
+        this.Id = id;
+    }
+
+    public String getId() {
+        return Id;
     }
 
     public String getTitle() {
