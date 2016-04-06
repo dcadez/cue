@@ -55,7 +55,7 @@ public class Reminder {
         return reminderDate;
     }
 
-    public String reminderTime() {
+    public String getTime() {
         return reminderTime;
     }
 
