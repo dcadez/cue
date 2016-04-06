@@ -2,6 +2,7 @@ package com.cueapp.cue.cue;
 
 import android.util.Log;
 
+import com.facebook.AccessToken;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -10,6 +11,9 @@ import com.firebase.client.FirebaseError;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by Prateek on 16/03/16.
@@ -38,7 +42,8 @@ public class FirebaseHelper {
     {
         mRef = new Firebase("https://luminous-inferno-3119.firebaseio.com/MainDB");
         mUserReminders = mRef.child("UserReminders");
-        mLoggedInUserReminders = mUserReminders.child(userId);
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        mLoggedInUserReminders = mUserReminders.child(accessToken.getUserId());
 
         AddNewReminderEventHandler();
     }
@@ -47,14 +52,19 @@ public class FirebaseHelper {
         mLoggedInUserReminders.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                com.cueapp.cue.cue.Reminder newReminder = dataSnapshot.getValue(
-                        com.cueapp.cue.cue.Reminder.class);
-                Log.v("New Value in Reminder",newReminder.getTitle());
+                Reminder newReminder = dataSnapshot.getValue(Reminder.class);
+
+//                lastReminderId = dataSnapshot.getKey().toString();
+//                Reminder test = new Reminder("Title2", "Description2", Calendar.getInstance().getTime(), "Time2", "Contact2");
+//                UpdateReminder(test);
+
+                Database.getInstance().AddNewReminder(newReminder);
+
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                Log.v("new reminder","new reminder updated");
             }
 
             @Override
@@ -75,11 +85,23 @@ public class FirebaseHelper {
     }
 
 
-    public void AddNewReminder(com.cueapp.cue.cue.Reminder newReminder)
+    public void AddNewReminder(Reminder newReminder)
     {
         //Todo: Lood for each user and it into their reminder list
         Firebase newFirebaseReminder = mLoggedInUserReminders.push();
+        newReminder.SetId(newFirebaseReminder.getKey().toString());
         newFirebaseReminder.setValue(newReminder);
     }
+String lastReminderId;
+    public void UpdateReminder(Reminder currentReminder)
+    {
+        Map<String,Object> reminder = new HashMap<String,Object>();
+        reminder.put("title",currentReminder.getTitle());
+        reminder.put("contact",currentReminder.getContact());
+        reminder.put("date",currentReminder.getContact());
+        reminder.put("description",currentReminder.getDescription());
 
+        Firebase existingReminder = mLoggedInUserReminders.child(lastReminderId);
+        existingReminder.updateChildren(reminder);
+    }
 }
