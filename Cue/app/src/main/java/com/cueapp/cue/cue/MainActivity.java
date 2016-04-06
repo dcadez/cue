@@ -36,6 +36,8 @@ import org.json.JSONArray;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,14 +62,16 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             String friend = json.getJSONObject(i).getString("name");
                             String friend_id = json.getJSONObject(i).getString("id");
-                            Log.e("Proximity", "Adding friend: " + friend + ", id: " + friend_id);
+                            Log.e("Cue", "Adding friend: " + friend + ", id: " + friend_id);
 //                            mUserFriends.add(new Friend(friend, Long.valueOf(friend_id)));
                         } catch (Exception e) {
-                            Log.e("Proximity", "Exception adding friend: " + e.toString());
+                            Log.e("Cue", "Exception adding friend: " + e.toString());
                         }
                     }
                 }
             }).executeAsync();
+
+            displayUserReminders(accessToken);
 
 
         } else{
@@ -90,6 +94,24 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+    }
+
+    public void displayUserReminders(AccessToken accesstoken) {
+
+        //TODO: Get current FB user's reminders from Firebase. Until then, using dummy
+        //data to test functionality
+        Date currentDate = new Date();
+        Reminder dummyReminder1 = new Reminder("Test1", "test1", currentDate, "Time", "Sender");
+        Reminder dummyReminder2 = new Reminder("Test2", "test2", currentDate, "Time", "Sender");
+
+        ArrayList<Reminder> reminderList = new ArrayList<Reminder>();
+        reminderList.add(dummyReminder1);
+        reminderList.add(dummyReminder2);
+
+        ReminderAdapter adapter = new ReminderAdapter(this, reminderList);
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(adapter);
+
     }
 
     /**Called when the user clicks the Plus button */
