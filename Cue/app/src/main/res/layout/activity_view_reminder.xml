@@ -74,8 +74,8 @@
         android:textColorHint="#475c79"
         android:textColor="#475c79"
         android:layout_alignBottom="@+id/reminderViewFriendsImage"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignLeft="@+id/reminderViewDate"
+        android:layout_alignStart="@+id/reminderViewDate" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -96,21 +96,44 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"
-        android:id="@+id/saveButton"
         android:layout_below="@+id/reminderViewSender"
-        android:layout_toLeftOf="@+id/reminderViewTime"
-        android:layout_toStartOf="@+id/reminderViewTime"
-        android:layout_marginTop="20dp"
-        android:background="#0e05c9"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="46px"
-        android:width="50dp"
-        android:height="20dp"
-        android:onClick="submitReminder"/>
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:id="@+id/reminderViewEditButton"
+            android:background="#0e05c9"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="46px"
+            android:width="50dp"
+            android:height="20dp"
+            android:onClick="editReminder"
+            android:layout_weight="1.0" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:id="@+id/reminderViewDeleteButton"
+            android:background="#0e05c9"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="46px"
+            android:width="50dp"
+            android:height="20dp"
+            android:onClick="deleteReminder"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="29dp"
+            android:layout_marginStart="29dp" />
+
+    </LinearLayout>
 
 </RelativeLayout>
