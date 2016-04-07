@@ -107,14 +107,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit"
-            android:id="@+id/reminderViewEditButton"
+            android:id="@+id/reminderEditEditButton"
             android:background="#0e05c9"
             android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="46px"
             android:width="50dp"
             android:height="20dp"
-            android:onClick="editReminder"
+            android:onClick="saveChanges"
             android:layout_weight="1.0" />
 
         <Button
