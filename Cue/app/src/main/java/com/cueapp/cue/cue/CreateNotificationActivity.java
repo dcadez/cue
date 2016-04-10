@@ -76,18 +76,6 @@ public class CreateNotificationActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-//        DateTime inspected_at = DateTime.now();                // Typically pulled from DB.
-//
-//        int year    = inspected_at.getYear() ;
-//        int month   = inspected_at.getMonthOfYear() - 1;      // Need to subtract 1 here.
-//        int day     = inspected_at.getDayOfMonth();
-//        int hour    = inspected_at.getHourOfDay();
-//        int minutes = inspected_at.getMinuteOfHour();
-
-
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-
         editDate = (EditText) findViewById(R.id.editDate);
         editTime = (EditText) findViewById(R.id.editTime);
 
@@ -110,7 +98,6 @@ public class CreateNotificationActivity extends AppCompatActivity {
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 updateLabel();
             }
-
         };
 
         editDate.setOnClickListener(new View.OnClickListener() {
@@ -124,29 +111,6 @@ public class CreateNotificationActivity extends AppCompatActivity {
             }
         });
 
-//        editDate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//                //To show current date in the datepicker
-//                Calendar mcurrentDate = Calendar.getInstance();
-//                int mYear = mcurrentDate.get(Calendar.YEAR);
-//                int mMonth = mcurrentDate.get(Calendar.MONTH);
-//                int mDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
-//
-//                DatePickerDialog mDatePicker = new DatePickerDialog(CreateNotificationActivity.this, new DatePickerDialog.OnDateSetListener() {
-//                    public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
-//                        // TODO Auto-generated method stub
-//                    /*      Your code   to get date and time    */
-//                    }
-//                }, mYear, mMonth, mDay);
-//                mDatePicker.setTitle("Select date");
-//                mDatePicker.show();
-//            }
-//        });
-
-
-//        editTime = (EditText) findViewById(R.id.editTime);
         editTime.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -168,7 +132,6 @@ public class CreateNotificationActivity extends AppCompatActivity {
 
                         String formatter = getTime(hourOfDay, selectedMinute);
 
-//                      editTime.setText(hourOfDay + " : " + selectedMinute + " " + AM_PM );
                         editTime.setText(formatter);
                     }
                 }, hour, minute, false);//No 24 hour time
@@ -176,7 +139,6 @@ public class CreateNotificationActivity extends AppCompatActivity {
                 mTimePicker.show();
             }
         });
-
     }
 
     public void submitReminder(View view) {
@@ -194,7 +156,6 @@ public class CreateNotificationActivity extends AppCompatActivity {
 
         Reminder test = new Reminder(title.getText().toString(), description.getText().toString(),
                 Calendar.getInstance().getTime(), "Time", "Contact");
-
 
 //        Firebase ref = new Firebase("https://cue-app.firebaseio.com/");
 
