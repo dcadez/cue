@@ -179,13 +179,13 @@ public class CreateNotificationActivity extends AppCompatActivity {
 
     }
 
-    EditText title;
-    EditText description;
-    EditText date;
-    EditText time;
-    EditText contact;
-
     public void submitReminder(View view) {
+
+        EditText title;
+        EditText description;
+        EditText date;
+        EditText time;
+        EditText contact;
 
         title = (EditText)findViewById(R.id.editTitle);
         description = (EditText)findViewById(R.id.editDescription);
