@@ -38,13 +38,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="date"
         android:ems="10"
         android:id="@+id/editDate"
         android:hint="1/11/2016"
         android:width="165dp"
         android:textSize="40px"
         android:textColorHint="#475c79"
+        android:focusable="false"
         android:layout_alignTop="@+id/editTime"
         android:layout_toRightOf="@+id/timeImage"
         android:layout_toEndOf="@+id/timeImage" />
@@ -58,6 +58,7 @@
         android:textSize="40px"
         android:id="@+id/editTime"
         android:textColorHint="#475c79"
+        android:focusable="false"
         android:layout_below="@+id/editDescription"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
