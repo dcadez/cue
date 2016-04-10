@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         ReminderAdapter adapter = new ReminderAdapter(this, reminderList);
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
+        setupListViewListener(listView);
 
     }
 
@@ -118,6 +120,22 @@ public class MainActivity extends AppCompatActivity {
     public void createReminder(View view) {
         Intent intent = new Intent(this, CreateNotificationActivity.class);
         startActivity(intent);
+    }
+
+    // Attaches a long click listener to the listview
+    private void setupListViewListener(ListView listView) {
+        listView.setOnItemLongClickListener(
+                new AdapterView.OnItemLongClickListener() {
+                    @Override
+                    public boolean onItemLongClick(AdapterView<?> adapter,
+                                                   View item, int pos, long id) {
+                        Intent intent = new Intent(getApplicationContext(), ViewReminderActivity.class);
+                        startActivity(intent);
+                        // Return true consumes the long click event (marks it handled)
+                        return true;
+                    }
+
+                });
     }
 
     @Override
